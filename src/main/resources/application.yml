@@ -1,0 +1,10 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          audience: audience
+          issuer-uri: https://localhost:44349
+          jwk-set-uri: https://your-auth-server-url/.well-known/jwks.json
+          # Uncomment the following if using symmetric key validation
+          key-value: 

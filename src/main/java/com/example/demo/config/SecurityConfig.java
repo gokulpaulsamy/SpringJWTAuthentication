@@ -31,6 +31,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/secure-data").hasAuthority("ROLE_USER")
                 .anyRequest().authenticated()
                 .and()
+//                .oauth2ResourceServer(oauth2 -> oauth2.jwt())
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         
         return http.build();
