@@ -7,6 +7,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -44,4 +46,12 @@ public class SecurityConfig {
         authenticationManagerBuilder.userDetailsService(userDetailsService);
         return authenticationManagerBuilder.build();
     }
+    
+    @Bean
+    public JwtDecoder jwtDecoder() {
+        // Replace with your JWK Set URI or key
+        String jwkSetUri = "https://your-auth-server/.well-known/jwks.json";
+        return NimbusJwtDecoder.withJwkSetUri(jwkSetUri).build();
+    }
+    
 }
