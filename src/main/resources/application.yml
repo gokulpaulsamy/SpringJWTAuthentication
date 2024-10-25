@@ -3,8 +3,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          audience: audience
-          issuer-uri: https://localhost:44349
-          jwk-set-uri: https://your-auth-server-url/.well-known/jwks.json
+          audience: MobileAndWeb
+          issuer-uri: https://localhost:44349/
+          #jwk-set-uri: https://localhost:44349/.well-known/jwks.json
           # Uncomment the following if using symmetric key validation
-          key-value: 
+          key-value: bdfa181dc9e7e8598468e888f57f11b3b817dbbdb7261f7defd76064e3ed17bb
